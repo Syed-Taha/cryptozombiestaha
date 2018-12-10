@@ -1,24 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import getWeb3 from "./utils/getWeb3"
+
 
 class App extends Component {
-  render() {
+  constructor (props) {
+    super (props)
+    this.state = {
+      web3: null,
+      account: null
+    }
+  }
+  componentDidMount () {
+    getWeb3
+      .then(results => {
+        console.log(results)
+        this.setState ({
+          web3: results.web3
+        })
+      })
+  }
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div className="container">
+        <header className="">
+          <h1>
+            Cryptozombies dApp
+          </h1>
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Here are the smart contracts we will be deploying today:
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <ul>
+            <li>Ownable</li>
+            <li>ZombieFactory</li>
+            <li>ZombieFeeding</li>
+            <li>ZombieHelper</li>
+          </ul>
+          <p>
+            Here are the other fields that we are importing from web3
+          </p>
+          <ol>
+            <li>Need a network id (to pass into the contract function)</li>
+            <li>Need the account that is logged in / selected</li>
+            <li>Need to get the balance? if you want; may not be relevant to this application but for others...</li>
+            <li>Need functions that are specific to transactions (like signing, encrypting, etc.)</li>
+            <li>Need the contract function so that we can get to our contracts</li>
+          </ol>
         </header>
       </div>
     );
