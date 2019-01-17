@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import getWeb3 from "./utils/getWeb3"
 
 
