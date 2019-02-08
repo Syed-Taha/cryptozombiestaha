@@ -10,14 +10,14 @@ class App extends Component {
       account: null
     }
   }
-  componentDidMount () {
-    getWeb3
-      .then(results => {
-        console.log(results)
-        this.setState ({
-          web3: results.web3
-        })
-      })
+
+  componentDidMount () {  
+    //   .then(results => {
+    //     console.log(results)
+    //     this.setS  tate ({
+    //       web3: results.web3
+    //     })
+    //   })
   }
   render () {
     return (
